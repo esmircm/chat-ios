@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02F49CC021FB707F003CB8FC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F49CBF21FB707F003CB8FC /* CloudKit.framework */; };
+		02F49CC221FB8F3F003CB8FC /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F49CC121FB8F3F003CB8FC /* MessageCell.swift */; };
+		02F49CC421FB9D3E003CB8FC /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F49CC321FB9D3E003CB8FC /* CloudKitHelper.swift */; };
+		02F8E36A21FB6EBF00FBAFE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E36921FB6EBF00FBAFE7 /* AppDelegate.swift */; };
+		02F8E36C21FB6EBF00FBAFE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E36B21FB6EBF00FBAFE7 /* ViewController.swift */; };
+		02F8E36F21FB6EBF00FBAFE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F8E36D21FB6EBF00FBAFE7 /* Main.storyboard */; };
+		02F8E37221FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E37021FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodeld */; };
+		02F8E37421FB6EC300FBAFE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02F8E37321FB6EC300FBAFE7 /* Assets.xcassets */; };
+		02F8E37721FB6EC300FBAFE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F8E37521FB6EC300FBAFE7 /* LaunchScreen.storyboard */; };
+		02F8E38221FB6EC300FBAFE7 /* TsaChat1819Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E38121FB6EC300FBAFE7 /* TsaChat1819Tests.swift */; };
+		64DBC0DC21FC83DB0018C502 /* chan.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 64DBC0DB21FC83DB0018C502 /* chan.aiff */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02F8E37E21FB6EC300FBAFE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02F8E35E21FB6EBF00FBAFE7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02F8E36521FB6EBF00FBAFE7;
+			remoteInfo = TsaChat1819;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02F49CBF21FB707F003CB8FC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		02F49CC121FB8F3F003CB8FC /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		02F49CC321FB9D3E003CB8FC /* CloudKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
+		02F8E36621FB6EBF00FBAFE7 /* TsaChat1819.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TsaChat1819.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02F8E36921FB6EBF00FBAFE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		02F8E36B21FB6EBF00FBAFE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		02F8E36E21FB6EBF00FBAFE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		02F8E37121FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TsaChat1819.xcdatamodel; sourceTree = "<group>"; };
+		02F8E37321FB6EC300FBAFE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02F8E37621FB6EC300FBAFE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		02F8E37821FB6EC300FBAFE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02F8E37D21FB6EC300FBAFE7 /* TsaChat1819Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TsaChat1819Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02F8E38121FB6EC300FBAFE7 /* TsaChat1819Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsaChat1819Tests.swift; sourceTree = "<group>"; };
+		02F8E38321FB6EC300FBAFE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02F8E38C21FB6F4200FBAFE7 /* TsaChat1819.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TsaChat1819.entitlements; sourceTree = "<group>"; };
+		64DBC0DB21FC83DB0018C502 /* chan.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = chan.aiff; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02F8E36321FB6EBF00FBAFE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F49CC021FB707F003CB8FC /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F8E37A21FB6EC300FBAFE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02F49CBE21FB707F003CB8FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02F49CBF21FB707F003CB8FC /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		02F8E35D21FB6EBF00FBAFE7 = {
+			isa = PBXGroup;
+			children = (
+				02F8E36821FB6EBF00FBAFE7 /* TsaChat1819 */,
+				02F8E38021FB6EC300FBAFE7 /* TsaChat1819Tests */,
+				02F8E36721FB6EBF00FBAFE7 /* Products */,
+				02F49CBE21FB707F003CB8FC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		02F8E36721FB6EBF00FBAFE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02F8E36621FB6EBF00FBAFE7 /* TsaChat1819.app */,
+				02F8E37D21FB6EC300FBAFE7 /* TsaChat1819Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02F8E36821FB6EBF00FBAFE7 /* TsaChat1819 */ = {
+			isa = PBXGroup;
+			children = (
+				64DBC0DB21FC83DB0018C502 /* chan.aiff */,
+				02F8E38C21FB6F4200FBAFE7 /* TsaChat1819.entitlements */,
+				02F8E36921FB6EBF00FBAFE7 /* AppDelegate.swift */,
+				02F49CC321FB9D3E003CB8FC /* CloudKitHelper.swift */,
+				02F8E36B21FB6EBF00FBAFE7 /* ViewController.swift */,
+				02F8E36D21FB6EBF00FBAFE7 /* Main.storyboard */,
+				02F49CC121FB8F3F003CB8FC /* MessageCell.swift */,
+				02F8E37321FB6EC300FBAFE7 /* Assets.xcassets */,
+				02F8E37521FB6EC300FBAFE7 /* LaunchScreen.storyboard */,
+				02F8E37821FB6EC300FBAFE7 /* Info.plist */,
+				02F8E37021FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodeld */,
+			);
+			path = TsaChat1819;
+			sourceTree = "<group>";
+		};
+		02F8E38021FB6EC300FBAFE7 /* TsaChat1819Tests */ = {
+			isa = PBXGroup;
+			children = (
+				02F8E38121FB6EC300FBAFE7 /* TsaChat1819Tests.swift */,
+				02F8E38321FB6EC300FBAFE7 /* Info.plist */,
+			);
+			path = TsaChat1819Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		02F8E36521FB6EBF00FBAFE7 /* TsaChat1819 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02F8E38621FB6EC300FBAFE7 /* Build configuration list for PBXNativeTarget "TsaChat1819" */;
+			buildPhases = (
+				02F8E36221FB6EBF00FBAFE7 /* Sources */,
+				02F8E36321FB6EBF00FBAFE7 /* Frameworks */,
+				02F8E36421FB6EBF00FBAFE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TsaChat1819;
+			productName = TsaChat1819;
+			productReference = 02F8E36621FB6EBF00FBAFE7 /* TsaChat1819.app */;
+			productType = "com.apple.product-type.application";
+		};
+		02F8E37C21FB6EC300FBAFE7 /* TsaChat1819Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02F8E38921FB6EC300FBAFE7 /* Build configuration list for PBXNativeTarget "TsaChat1819Tests" */;
+			buildPhases = (
+				02F8E37921FB6EC300FBAFE7 /* Sources */,
+				02F8E37A21FB6EC300FBAFE7 /* Frameworks */,
+				02F8E37B21FB6EC300FBAFE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02F8E37F21FB6EC300FBAFE7 /* PBXTargetDependency */,
+			);
+			name = TsaChat1819Tests;
+			productName = TsaChat1819Tests;
+			productReference = 02F8E37D21FB6EC300FBAFE7 /* TsaChat1819Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		02F8E35E21FB6EBF00FBAFE7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Marro Gros Gabriel";
+				TargetAttributes = {
+					02F8E36521FB6EBF00FBAFE7 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					02F8E37C21FB6EC300FBAFE7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 02F8E36521FB6EBF00FBAFE7;
+					};
+				};
+			};
+			buildConfigurationList = 02F8E36121FB6EBF00FBAFE7 /* Build configuration list for PBXProject "TsaChat1819" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 02F8E35D21FB6EBF00FBAFE7;
+			productRefGroup = 02F8E36721FB6EBF00FBAFE7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				02F8E36521FB6EBF00FBAFE7 /* TsaChat1819 */,
+				02F8E37C21FB6EC300FBAFE7 /* TsaChat1819Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02F8E36421FB6EBF00FBAFE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F8E37721FB6EC300FBAFE7 /* LaunchScreen.storyboard in Resources */,
+				02F8E37421FB6EC300FBAFE7 /* Assets.xcassets in Resources */,
+				02F8E36F21FB6EBF00FBAFE7 /* Main.storyboard in Resources */,
+				64DBC0DC21FC83DB0018C502 /* chan.aiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F8E37B21FB6EC300FBAFE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02F8E36221FB6EBF00FBAFE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F8E36C21FB6EBF00FBAFE7 /* ViewController.swift in Sources */,
+				02F49CC221FB8F3F003CB8FC /* MessageCell.swift in Sources */,
+				02F8E36A21FB6EBF00FBAFE7 /* AppDelegate.swift in Sources */,
+				02F49CC421FB9D3E003CB8FC /* CloudKitHelper.swift in Sources */,
+				02F8E37221FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F8E37921FB6EC300FBAFE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F8E38221FB6EC300FBAFE7 /* TsaChat1819Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02F8E37F21FB6EC300FBAFE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02F8E36521FB6EBF00FBAFE7 /* TsaChat1819 */;
+			targetProxy = 02F8E37E21FB6EC300FBAFE7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		02F8E36D21FB6EBF00FBAFE7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02F8E36E21FB6EBF00FBAFE7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		02F8E37521FB6EC300FBAFE7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02F8E37621FB6EC300FBAFE7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		02F8E38421FB6EC300FBAFE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		02F8E38521FB6EC300FBAFE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		02F8E38721FB6EC300FBAFE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TsaChat1819/TsaChat1819.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RDV2KJUFH7;
+				INFOPLIST_FILE = TsaChat1819/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = es.usj.tsachat1819;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		02F8E38821FB6EC300FBAFE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TsaChat1819/TsaChat1819.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RDV2KJUFH7;
+				INFOPLIST_FILE = TsaChat1819/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = es.usj.tsachat1819;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		02F8E38A21FB6EC300FBAFE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RDV2KJUFH7;
+				INFOPLIST_FILE = TsaChat1819Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = es.usj.tsachat1819.TsaChat1819Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TsaChat1819.app/TsaChat1819";
+			};
+			name = Debug;
+		};
+		02F8E38B21FB6EC300FBAFE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RDV2KJUFH7;
+				INFOPLIST_FILE = TsaChat1819Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = es.usj.tsachat1819.TsaChat1819Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TsaChat1819.app/TsaChat1819";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		02F8E36121FB6EBF00FBAFE7 /* Build configuration list for PBXProject "TsaChat1819" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02F8E38421FB6EC300FBAFE7 /* Debug */,
+				02F8E38521FB6EC300FBAFE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02F8E38621FB6EC300FBAFE7 /* Build configuration list for PBXNativeTarget "TsaChat1819" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02F8E38721FB6EC300FBAFE7 /* Debug */,
+				02F8E38821FB6EC300FBAFE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02F8E38921FB6EC300FBAFE7 /* Build configuration list for PBXNativeTarget "TsaChat1819Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02F8E38A21FB6EC300FBAFE7 /* Debug */,
+				02F8E38B21FB6EC300FBAFE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		02F8E37021FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				02F8E37121FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodel */,
+			);
+			currentVersion = 02F8E37121FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodel */;
+			path = TsaChat1819.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 02F8E35E21FB6EBF00FBAFE7 /* Project object */;
+}
