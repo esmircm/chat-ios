@@ -37,12 +37,12 @@
                                                         <constraint firstAttribute="width" secondItem="J06-Fp-Xym" secondAttribute="height" multiplier="1:1" id="Pcl-k1-ZNs"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LeftBubble" translatesAutoresizingMaskIntoConstraints="NO" id="Xtc-X2-S1m">
-                                                    <rect key="frame" x="78.999999999999986" y="24.666666666666671" width="153.66666666666663" height="37"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble_full" translatesAutoresizingMaskIntoConstraints="NO" id="Xtc-X2-S1m">
+                                                    <rect key="frame" x="78.999999999999986" y="26.666666666666671" width="153.66666666666663" height="35"/>
                                                     <rect key="contentStretch" x="0.40000000000000002" y="0.40000000000000002" width="0.0" height="0.0"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sdfgsdfg   sdfgs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGj-xd-2Dc">
-                                                    <rect key="frame" x="99" y="24.666666666666671" width="123.66666666666669" height="37"/>
+                                                    <rect key="frame" x="99" y="26.666666666666671" width="123.66666666666669" height="35"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,13 +78,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightBubble" translatesAutoresizingMaskIntoConstraints="NO" id="iU2-hd-sFa">
-                                                    <rect key="frame" x="181.33333333333337" y="24.666666666666671" width="153.66666666666663" height="37"/>
+                                                    <rect key="frame" x="181.33333333333337" y="25.666666666666671" width="153.66666666666663" height="36"/>
                                                     <rect key="contentStretch" x="0.40000000000000002" y="0.40000000000000002" width="0.0" height="0.0"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sdfgsdfg   sdfgs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfn-mJ-PA3">
-                                                    <rect key="frame" x="191.33333333333334" y="24.666666666666671" width="123.66666666666666" height="37"/>
+                                                    <rect key="frame" x="191.33333333333334" y="25.666666666666671" width="123.66666666666666" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user2" translatesAutoresizingMaskIntoConstraints="NO" id="ivJ-5Z-MLU">
@@ -205,10 +204,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LeftBubble" width="66" height="37"/>
-        <image name="rightBubble" width="66" height="37"/>
-        <image name="send100" width="50" height="50"/>
-        <image name="settins100" width="50" height="50"/>
-        <image name="user2" width="70" height="70"/>
+        <image name="bubble_full" width="56" height="35"/>
+        <image name="rightBubble" width="63.360000610351562" height="36"/>
+        <image name="send100" width="40" height="40"/>
+        <image name="settins100" width="40" height="40"/>
+        <image name="user2" width="140" height="140"/>
     </resources>
 </document>
