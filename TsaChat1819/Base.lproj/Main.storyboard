@@ -20,8 +20,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z4V-an-ciW">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="810"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leftMessage" rowHeight="67" id="141-kE-vDq" customClass="MessageCell" customModule="TsaChat1819" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="67"/>
@@ -45,10 +45,10 @@
                                                     <rect key="frame" x="99" y="26.666666666666671" width="123.66666666666669" height="35"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Xtc-X2-S1m" firstAttribute="leading" secondItem="J06-Fp-Xym" secondAttribute="trailing" constant="8" id="1PQ-6G-eRe"/>
                                                 <constraint firstAttribute="bottom" secondItem="Xtc-X2-S1m" secondAttribute="bottom" constant="5" id="2z4-7r-cFH"/>
@@ -63,9 +63,9 @@
                                                 <constraint firstItem="Xtc-X2-S1m" firstAttribute="leading" secondItem="ZGj-xd-2Dc" secondAttribute="leading" constant="-20" id="zuH-5i-dpC"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="bubbleImage" destination="Xtc-X2-S1m" id="LhF-FW-0ui"/>
                                             <outlet property="messageText" destination="ZGj-xd-2Dc" id="w5s-Mo-3cr"/>
                                             <outlet property="userImage" destination="J06-Fp-Xym" id="5U4-EY-IHQ"/>
                                         </connections>
@@ -77,13 +77,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="66.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightBubble" translatesAutoresizingMaskIntoConstraints="NO" id="iU2-hd-sFa">
-                                                    <rect key="frame" x="181.33333333333337" y="25.666666666666671" width="153.66666666666663" height="36"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble_full" translatesAutoresizingMaskIntoConstraints="NO" id="iU2-hd-sFa">
+                                                    <rect key="frame" x="181.33333333333337" y="26.666666666666671" width="153.66666666666663" height="35"/>
                                                     <rect key="contentStretch" x="0.40000000000000002" y="0.40000000000000002" width="0.0" height="0.0"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sdfgsdfg   sdfgs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfn-mJ-PA3">
-                                                    <rect key="frame" x="191.33333333333334" y="25.666666666666671" width="123.66666666666666" height="36"/>
+                                                    <rect key="frame" x="191.33333333333334" y="26.666666666666671" width="123.66666666666666" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user2" translatesAutoresizingMaskIntoConstraints="NO" id="ivJ-5Z-MLU">
@@ -108,8 +109,9 @@
                                                 <constraint firstItem="Rfn-mJ-PA3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qqD-5G-EVr" secondAttribute="top" constant="5" id="xqY-VU-9Ay"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="bubbleImageRight" destination="iU2-hd-sFa" id="dbo-Uo-JNj"/>
                                             <outlet property="messageText" destination="Rfn-mJ-PA3" id="T6w-8a-uuc"/>
                                             <outlet property="userImage" destination="ivJ-5Z-MLU" id="CKL-Gq-c1p"/>
                                         </connections>
@@ -205,9 +207,8 @@
     </scenes>
     <resources>
         <image name="bubble_full" width="56" height="35"/>
-        <image name="rightBubble" width="63.360000610351562" height="36"/>
-        <image name="send100" width="40" height="40"/>
-        <image name="settins100" width="40" height="40"/>
-        <image name="user2" width="140" height="140"/>
+        <image name="send100" width="50" height="50"/>
+        <image name="settins100" width="50" height="50"/>
+        <image name="user2" width="70" height="70"/>
     </resources>
 </document>
