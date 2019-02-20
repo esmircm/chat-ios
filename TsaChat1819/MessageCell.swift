@@ -22,13 +22,12 @@ class MessageCell: UITableViewCell {
         userImage.clipsToBounds = true
         userImage.layer.cornerRadius = userImage.frame.width / 2.0
     
-        // userImage.tintColor = UIColor.red
         
         bubbleImage?.image = bubbleImage?.image?.withRenderingMode(.alwaysTemplate)
         bubbleImage?.tintColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1)
         
         bubbleImageRight?.image = bubbleImageRight?.image?.withRenderingMode(.alwaysTemplate)
-        bubbleImageRight?.tintColor = UIColor.green
+        bubbleImageRight?.tintColor = #colorLiteral(red: 0, green: 0.7967179418, blue: 0.7866604924, alpha: 1)
         
     
     }
