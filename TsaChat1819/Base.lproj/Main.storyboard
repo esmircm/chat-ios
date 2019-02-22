@@ -381,7 +381,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xDC-sf-PsL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.27457042875461141" green="0.78367875647668395" blue="0.78089806625741831" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.0" green="0.80746518917034327" blue="0.79770529957316316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DAs-IL-B0w"/>
@@ -394,11 +394,11 @@
     </scenes>
     <resources>
         <image name="bubble_full" width="56" height="35"/>
-        <image name="call" width="256" height="256"/>
-        <image name="send100" width="50" height="50"/>
-        <image name="settins100" width="50" height="50"/>
-        <image name="teamwork" width="256" height="256"/>
-        <image name="teamwork (1)" width="256" height="256"/>
+        <image name="call" width="512" height="512"/>
+        <image name="send100" width="40" height="40"/>
+        <image name="settins100" width="40" height="40"/>
+        <image name="teamwork" width="512" height="512"/>
+        <image name="teamwork (1)" width="512" height="512"/>
         <image name="userHim" width="64" height="64"/>
         <image name="userMe" width="64" height="64"/>
     </resources>
