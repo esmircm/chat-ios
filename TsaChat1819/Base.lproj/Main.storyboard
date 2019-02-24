@@ -298,60 +298,22 @@
                                             <outlet property="userImage" destination="ivJ-5Z-MLU" id="CKL-Gq-c1p"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rightImageMessage" rowHeight="67" id="t3e-gM-Sze" userLabel="rightImageMessage" customClass="ImageMessageCell" customModule="TsaChat1819" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="162" width="414" height="67"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t3e-gM-Sze" id="ocg-xW-g5q">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamwork" translatesAutoresizingMaskIntoConstraints="NO" id="mz0-9Q-vMY">
-                                                    <rect key="frame" x="343" y="8.3333333333333357" width="56" height="56.000000000000007"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="mz0-9Q-vMY" secondAttribute="height" multiplier="1:1" id="UGH-8p-VTf"/>
-                                                        <constraint firstAttribute="width" constant="56" id="Vvu-UW-ELP"/>
-                                                        <constraint firstAttribute="height" constant="56" id="Wy8-74-T5n"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-lO-n1J">
-                                                    <rect key="frame" x="151" y="5.3333333333333357" width="112" height="62.000000000000007"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="tintColor" red="0.62263994199999995" green="1" blue="0.97892604059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <constraints>
-                                                <constraint firstItem="PfC-lO-n1J" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ocg-xW-g5q" secondAttribute="top" constant="5" id="4JE-R6-x9m"/>
-                                                <constraint firstItem="PfC-lO-n1J" firstAttribute="centerX" secondItem="ocg-xW-g5q" secondAttribute="centerX" id="BqS-Hd-4U7"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PfC-lO-n1J" secondAttribute="bottom" constant="5" id="Kcl-72-MRV"/>
-                                                <constraint firstAttribute="bottom" secondItem="mz0-9Q-vMY" secondAttribute="bottom" constant="8" id="XGo-Ij-wWB"/>
-                                                <constraint firstItem="PfC-lO-n1J" firstAttribute="centerY" secondItem="ocg-xW-g5q" secondAttribute="centerY" id="s7z-Pg-2lg"/>
-                                                <constraint firstAttribute="trailing" secondItem="mz0-9Q-vMY" secondAttribute="trailing" constant="15" id="sbE-wy-1yk"/>
-                                                <constraint firstItem="mz0-9Q-vMY" firstAttribute="top" secondItem="ocg-xW-g5q" secondAttribute="top" constant="8" id="xHv-Xz-yOr"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="imageMessage" destination="PfC-lO-n1J" id="geh-IA-hae"/>
-                                            <outlet property="userImage" destination="mz0-9Q-vMY" id="zyF-cZ-jNi"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leftImageMessage" rowHeight="67" id="ggM-9V-J1y" customClass="ImageMessageCell" customModule="TsaChat1819" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="229" width="414" height="67"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leftImageMessage" rowHeight="200" id="ggM-9V-J1y" customClass="ImageMessageCell" customModule="TsaChat1819" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="162" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ggM-9V-J1y" id="XqO-GV-MfP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user2" translatesAutoresizingMaskIntoConstraints="NO" id="anL-bk-d47">
-                                                    <rect key="frame" x="15" y="6" width="56" height="56"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamwork" translatesAutoresizingMaskIntoConstraints="NO" id="anL-bk-d47">
+                                                    <rect key="frame" x="15" y="139" width="56" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="anL-bk-d47" secondAttribute="height" multiplier="1:1" id="f3B-rH-xSp"/>
                                                         <constraint firstAttribute="height" constant="56" id="fIm-GP-qBh"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="AQo-bY-W2f">
-                                                    <rect key="frame" x="152" y="2" width="170" height="63"/>
+                                                    <rect key="frame" x="79" y="2" width="243" height="196"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -364,7 +326,7 @@
                                                 <constraint firstItem="AQo-bY-W2f" firstAttribute="top" secondItem="XqO-GV-MfP" secondAttribute="top" constant="2" id="Edv-Df-3hm"/>
                                                 <constraint firstAttribute="trailing" secondItem="AQo-bY-W2f" secondAttribute="trailing" constant="92" id="n9R-Ac-q38"/>
                                                 <constraint firstItem="anL-bk-d47" firstAttribute="leading" secondItem="XqO-GV-MfP" secondAttribute="leading" constant="15" id="rzB-sn-cix"/>
-                                                <constraint firstItem="AQo-bY-W2f" firstAttribute="leading" secondItem="anL-bk-d47" secondAttribute="trailing" constant="81" id="wYp-fE-ORT"/>
+                                                <constraint firstItem="AQo-bY-W2f" firstAttribute="leading" secondItem="anL-bk-d47" secondAttribute="trailing" constant="8" id="wYp-fE-ORT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -372,6 +334,45 @@
                                         <connections>
                                             <outlet property="imageMessage" destination="AQo-bY-W2f" id="VkO-yU-bnf"/>
                                             <outlet property="userImage" destination="anL-bk-d47" id="Rfu-06-U21"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rightImageMessage" rowHeight="200" id="6Ku-ml-fem" customClass="ImageMessageCell" customModule="TsaChat1819" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="362" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Ku-ml-fem" id="CF3-FC-WWL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamwork" translatesAutoresizingMaskIntoConstraints="NO" id="gxG-n7-5Ky">
+                                                    <rect key="frame" x="343" y="139" width="56" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="gxG-n7-5Ky" secondAttribute="height" multiplier="1:1" id="QEN-d3-1Tf"/>
+                                                        <constraint firstAttribute="height" constant="56" id="vl1-a8-qKl"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="zBo-pR-ult">
+                                                    <rect key="frame" x="79" y="2" width="256" height="196"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" red="0.62263994199999995" green="1" blue="0.97892604059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstItem="gxG-n7-5Ky" firstAttribute="leading" secondItem="zBo-pR-ult" secondAttribute="trailing" constant="8" id="2bu-X4-lh7"/>
+                                                <constraint firstItem="gxG-n7-5Ky" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CF3-FC-WWL" secondAttribute="top" constant="5" id="EqI-Fi-2qU"/>
+                                                <constraint firstAttribute="trailing" secondItem="gxG-n7-5Ky" secondAttribute="trailing" constant="15" id="GTr-ff-zgu"/>
+                                                <constraint firstAttribute="bottom" secondItem="gxG-n7-5Ky" secondAttribute="bottom" constant="5" id="IkG-4X-Zns"/>
+                                                <constraint firstItem="zBo-pR-ult" firstAttribute="top" secondItem="CF3-FC-WWL" secondAttribute="top" constant="2" id="UT0-jl-Qu1"/>
+                                                <constraint firstItem="zBo-pR-ult" firstAttribute="centerY" secondItem="CF3-FC-WWL" secondAttribute="centerY" id="f2u-c8-h8I"/>
+                                                <constraint firstItem="zBo-pR-ult" firstAttribute="centerY" secondItem="CF3-FC-WWL" secondAttribute="centerY" id="gl9-CS-vCE"/>
+                                                <constraint firstItem="zBo-pR-ult" firstAttribute="centerX" secondItem="CF3-FC-WWL" secondAttribute="centerX" id="kjM-Mc-rUv"/>
+                                                <constraint firstAttribute="bottom" secondItem="zBo-pR-ult" secondAttribute="bottom" constant="2" id="o07-Md-3rW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="imageMessage" destination="zBo-pR-ult" id="wAK-h5-oUc"/>
+                                            <outlet property="userImage" destination="gxG-n7-5Ky" id="i0Y-Fy-Zt0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -484,7 +485,6 @@
         <image name="settins100" width="50" height="50"/>
         <image name="teamwork" width="256" height="256"/>
         <image name="teamwork (1)" width="256" height="256"/>
-        <image name="user2" width="70" height="70"/>
         <image name="userHim" width="64" height="64"/>
         <image name="userMe" width="64" height="64"/>
     </resources>

@@ -39,8 +39,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         editingText.text = ""
         editingText.layer.cornerRadius = 9.9
-
-
+        
+        
         
         sendButton.isEnabled = false
         
@@ -176,7 +176,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                                                 
             }
         }
-       
+        
         editingText.text = ""
         sendButton.isEnabled = false
         editingText.resignFirstResponder()
@@ -283,7 +283,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case (Constants.TEXT_MESSAGE_TYPE, false):
             cellReturn = getTextCell(message: message, tableView: tableView, indexPath: indexPath, identifier: Constants.LEFT_TEXT_MESSAGE)
         case (Constants.IMAGE_MESSAGE_TYPE, false):
-            cellReturn = getImageCell(message: message, tableView: tableView, indexPath: indexPath, identifier: Constants.RIGHT_IMAGE_MESSAGE)
+            cellReturn = getImageCell(message: message, tableView: tableView, indexPath: indexPath, identifier: Constants.LEFT_IMAGE_MESSAGE)
         default:
             debugPrint("Unexpected combination of message type and user ")        }
         return cellReturn
@@ -291,7 +291,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func getImageCell(message: MEMessage, tableView: UITableView, indexPath: IndexPath, identifier: String) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ImageMessageCell
-           cell.imageMessage.image = UIImage(named: "image_placeholder")
+        cell.imageMessage.image = UIImage(named: "image_placeholder")
         if let imageUrl = message.assetUrl {
             if let data = NSData(contentsOf: imageUrl){
                 cell.imageMessage.image = UIImage(data: data as Data)

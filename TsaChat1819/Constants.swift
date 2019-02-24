@@ -14,6 +14,6 @@ struct Constants {
     static let IMAGE_MESSAGE_TYPE = "image_message"
     static let LEFT_TEXT_MESSAGE = "leftMessage"
     static let RIGHT_TEXT_MESSAGE = "rightMessage"
-    static let LEFT_IMAGE_MESSAGE_TYPE = "leftImageMessage"
+    static let LEFT_IMAGE_MESSAGE = "leftImageMessage"
     static let RIGHT_IMAGE_MESSAGE = "rightImageMessage"
 }
