@@ -18,6 +18,13 @@
 		02F8E37721FB6EC300FBAFE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F8E37521FB6EC300FBAFE7 /* LaunchScreen.storyboard */; };
 		02F8E38221FB6EC300FBAFE7 /* TsaChat1819Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E38121FB6EC300FBAFE7 /* TsaChat1819Tests.swift */; };
 		64DBC0DC21FC83DB0018C502 /* chan.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 64DBC0DB21FC83DB0018C502 /* chan.aiff */; };
+		7EBF505E221987920093F9F5 /* ImageMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF505D221987920093F9F5 /* ImageMessageCell.swift */; };
+		7EBF5060221B3C740093F9F5 /* CloudKitHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF505F221B3C740093F9F5 /* CloudKitHelperProtocol.swift */; };
+		7EBF5062221B3D890093F9F5 /* MeMessagesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5061221B3D890093F9F5 /* MeMessagesHelper.swift */; };
+		7EBF5064221B43890093F9F5 /* LocalDatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5063221B43890093F9F5 /* LocalDatabaseProtocol.swift */; };
+		7EBF5066221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5065221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift */; };
+		7EBF5068221C91D20093F9F5 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5067221C91D20093F9F5 /* UIImage+resize.swift */; };
+		7EBF506A221F3CE10093F9F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5069221F3CE10093F9F5 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,13 @@
 		02F8E38321FB6EC300FBAFE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02F8E38C21FB6F4200FBAFE7 /* TsaChat1819.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TsaChat1819.entitlements; sourceTree = "<group>"; };
 		64DBC0DB21FC83DB0018C502 /* chan.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = chan.aiff; sourceTree = "<group>"; };
+		7EBF505D221987920093F9F5 /* ImageMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageCell.swift; sourceTree = "<group>"; };
+		7EBF505F221B3C740093F9F5 /* CloudKitHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelperProtocol.swift; sourceTree = "<group>"; };
+		7EBF5061221B3D890093F9F5 /* MeMessagesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeMessagesHelper.swift; sourceTree = "<group>"; };
+		7EBF5063221B43890093F9F5 /* LocalDatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseProtocol.swift; sourceTree = "<group>"; };
+		7EBF5065221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeMessageLocalDatabaseImplementation.swift; sourceTree = "<group>"; };
+		7EBF5067221C91D20093F9F5 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
+		7EBF5069221F3CE10093F9F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +123,13 @@
 				02F8E37521FB6EC300FBAFE7 /* LaunchScreen.storyboard */,
 				02F8E37821FB6EC300FBAFE7 /* Info.plist */,
 				02F8E37021FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodeld */,
+				7EBF505D221987920093F9F5 /* ImageMessageCell.swift */,
+				7EBF505F221B3C740093F9F5 /* CloudKitHelperProtocol.swift */,
+				7EBF5061221B3D890093F9F5 /* MeMessagesHelper.swift */,
+				7EBF5063221B43890093F9F5 /* LocalDatabaseProtocol.swift */,
+				7EBF5065221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift */,
+				7EBF5067221C91D20093F9F5 /* UIImage+resize.swift */,
+				7EBF5069221F3CE10093F9F5 /* Constants.swift */,
 			);
 			path = TsaChat1819;
 			sourceTree = "<group>";
@@ -233,10 +254,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				02F8E36C21FB6EBF00FBAFE7 /* ViewController.swift in Sources */,
+				7EBF5064221B43890093F9F5 /* LocalDatabaseProtocol.swift in Sources */,
+				7EBF5060221B3C740093F9F5 /* CloudKitHelperProtocol.swift in Sources */,
+				7EBF505E221987920093F9F5 /* ImageMessageCell.swift in Sources */,
+				7EBF5062221B3D890093F9F5 /* MeMessagesHelper.swift in Sources */,
 				02F49CC221FB8F3F003CB8FC /* MessageCell.swift in Sources */,
 				02F8E36A21FB6EBF00FBAFE7 /* AppDelegate.swift in Sources */,
 				02F49CC421FB9D3E003CB8FC /* CloudKitHelper.swift in Sources */,
+				7EBF5068221C91D20093F9F5 /* UIImage+resize.swift in Sources */,
+				7EBF5066221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift in Sources */,
 				02F8E37221FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodeld in Sources */,
+				7EBF506A221F3CE10093F9F5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

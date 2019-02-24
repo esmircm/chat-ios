@@ -1,8 +1,8 @@
 //
-//  CloudKitHelper.swift
+//  MeMessagesHelper.swift
 //  TsaChat1819
 //
-//  Created by Marro Gros Gabriel on 25/01/2019.
+//  Created by Milan Kokic on 18/02/2019.
 //  Copyright © 2019 Marro Gros Gabriel. All rights reserved.
 //
 
@@ -10,19 +10,39 @@ import Foundation
 import CloudKit
 import CoreData
 
-struct CloudKitHelper : CloudKitHelperProtocol {
+class MeMessageHelper : CloudKitHelperProtocol {
+
+    let localDatabaseProtocol : LocalDatabaseProtocol?
     
-    func sendImageMessage(fileUrl: URL, in context: NSManagedObjectContext, completion: (Bool) -> Void) {
-        
-        
+    init() {
+        localDatabaseProtocol = MeMessageLocalDatabaseImplementation()
     }
     
-  
+    func sendMessage(_ text: String, in context: NSManagedObjectContext, completion: (Bool) -> Void) {
+        let message = CKRecord(recordType: "MeMessages")
+        message["text"] = text as NSString
+        message["messageType"] = "text_message" as NSString
+        
+        let db = CKContainer.default().publicCloudDatabase
+        
+        db.save(message) { [weak self] (record, error) in
+            
+            guard error == nil, record != nil else {
+                return
+            }
+            
+            if let record = record {
+                self?.localDatabaseProtocol?.insertNewMessage(context: context, record: record, text: text)
+            }
+        }
+    }
+    
+    
     static var downloading = false
     
     static let LastDateKey = "LAST_MESSAGE_DATE"
     
-    func myName(_ completion:@escaping (String?)->Void) {
+    func myName(_ completion: @escaping (String?) -> Void) {
         
         let container = CKContainer.default()
         container.fetchUserRecordID { (recordID, error) in
@@ -35,10 +55,9 @@ struct CloudKitHelper : CloudKitHelperProtocol {
         }
     }
     
-    
-    func downloadMessages(from: Date?, in context: NSManagedObjectContext, _ completion: @escaping (Date?)->Void) {
+    func downloadMessages(from: Date?, in context: NSManagedObjectContext, _ completion: @escaping (Date?) -> Void) {
         
-        guard !CloudKitHelper.downloading else {
+        guard !MeMessageHelper.downloading else {
             
             completion(nil)
             return
@@ -60,54 +79,27 @@ struct CloudKitHelper : CloudKitHelperProtocol {
         let tempContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         tempContext.parent = context
         
-        let query = CKQuery(recordType: "Messages", predicate: predicate)
+        let query = CKQuery(recordType: "MEMessages", predicate: predicate)
         query.sortDescriptors = [ NSSortDescriptor(key: "creationDate", ascending: true)]
         
         func perRecord(_ record: CKRecord) {
             
             lastDate = record.creationDate
             
-            tempContext.perform {
-                
-                let recordCode = record.recordID.recordName
-                
-                let req = NSFetchRequest(entityName: "Message") as NSFetchRequest<Message>
-                req.predicate = NSPredicate(format: "recordName == %@", recordCode)
-                
-                guard let results = try? tempContext.fetch(req), results.isEmpty else {
-                    return
-                }
-                
-                let newMessage = NSEntityDescription.insertNewObject(forEntityName: "Message",
-                                                                     into: tempContext) as! Message
-                
-                if let text = record["text"] as? NSString {
-                    newMessage.text = text as String
-                }
-                
-                newMessage.userCode = record.creatorUserRecordID?.recordName
-                newMessage.date = record.creationDate
-            }
+            localDatabaseProtocol?.insertMessagePerRecord(tempContext: tempContext, record: record)
         }
         
         func completionBlock(cursor: CKQueryOperation.Cursor?, error: Error?) {
             
-            tempContext.perform {
-                try? tempContext.save()
-                if let parent = tempContext.parent {
-                    parent.perform {
-                        try? parent.save()
-                    }
-                }
-            }
+            localDatabaseProtocol?.saveContext(tempContext: tempContext)
             
-            if cursor != nil {
+         if cursor != nil {
                 let newOp = CKQueryOperation(cursor: cursor!)
                 newOp.recordFetchedBlock = perRecord
                 newOp.queryCompletionBlock = completionBlock
                 db.add(newOp)
             } else {
-                CloudKitHelper.downloading = false
+                MeMessageHelper.downloading = false
                 completion(lastDate)
             }
         }
@@ -115,35 +107,31 @@ struct CloudKitHelper : CloudKitHelperProtocol {
         let queryOp = CKQueryOperation(query: query)
         queryOp.recordFetchedBlock = perRecord
         queryOp.queryCompletionBlock = completionBlock
-        CloudKitHelper.downloading = true
+        MeMessageHelper.downloading = true
         db.add(queryOp)
     }
     
-    
-    func sendMessage(_ text: String, in context: NSManagedObjectContext, completion: (Bool)->Void) {
-        
-        let message = CKRecord(recordType: "Messages")
-        message["text"] = text as NSString
+    func sendImageMessage(fileUrl: URL, in context: NSManagedObjectContext, completion: (Bool) -> Void) {
+        let asset = CKAsset(fileURL: fileUrl)
+        let message = CKRecord(recordType: "MEMessages")
+        message["asset"] = asset as CKAsset
+        message["messageType"] = "image_message" as NSString
         
         let db = CKContainer.default().publicCloudDatabase
         
-        db.save(message) { (record, error) in
+        db.save(message) { [weak self] (record, error) in
             guard error == nil, record != nil else {
                 return
             }
             
-            context.perform {
-                let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-                message.text = text
-                message.userCode = record!.creatorUserRecordID?.recordName
-                message.date = record!.creationDate
-                message.recordName = record?.recordID.recordName
-                try? context.save()
+            if let record = record {
+                 self?.localDatabaseProtocol?.insertNewImageMessage(context: context, record: record, assetUrl: fileUrl)
             }
+         
         }
     }
     
-    func checkForSubscription(){
+    func checkForSubscription() {
         
         let db = CKContainer.default().publicCloudDatabase
         
@@ -158,7 +146,7 @@ struct CloudKitHelper : CloudKitHelperProtocol {
                 
                 let predicate = NSPredicate(value: true)
                 
-                let subscription = CKQuerySubscription(recordType: "Messages",
+                let subscription = CKQuerySubscription(recordType: "MEMessages",
                                                        predicate: predicate,
                                                        subscriptionID: "NEW_MESSAGE",
                                                        options: options)
@@ -177,5 +165,6 @@ struct CloudKitHelper : CloudKitHelperProtocol {
         }
         
     }
+    
     
 }

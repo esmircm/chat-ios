@@ -14,7 +14,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let cloudKitHelper = MeMessageHelper()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -36,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIApplication.shared.registerForRemoteNotifications()
             }
         }
-        CloudKitHelper.checkForSubscription()
+       
+        cloudKitHelper.checkForSubscription()
         return true
     }
 
@@ -119,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let date = UserDefaults.standard.value(forKey: CloudKitHelper.LastDateKey) as? Date
         
-        CloudKitHelper.downloadMessages(from: date, in: persistentContainer.viewContext) {
+        cloudKitHelper.downloadMessages(from: date, in: persistentContainer.viewContext) {
             (date) in
             
             if date != nil {

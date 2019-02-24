@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var bottomConstaint: NSLayoutConstraint!
@@ -17,15 +17,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var editingText: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     
+    private var cloudKitHelper: CloudKitHelperProtocol?
+    
     private var originalBottomConstraint: CGFloat = 0
     
     var context: NSManagedObjectContext!
-    
-    // temporal
-    var myCode = "__defaultOwner__"
+    var fileUrl: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cloudKitHelper = MeMessageHelper()
         originalBottomConstraint = bottomConstaint.constant
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAnimation(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -40,7 +42,7 @@ class ViewController: UIViewController {
         sendButton.isEnabled = false
         
         
-
+        
         startDownloading()
         
         tableView.refreshControl = UIRefreshControl()
@@ -48,13 +50,13 @@ class ViewController: UIViewController {
     }
     
     func startDownloading() {
-
-        let date = UserDefaults.standard.value(forKey: CloudKitHelper.LastDateKey) as? Date
-        CloudKitHelper.downloadMessages(from: date, in: context) { [weak self] lastDate in
-            if lastDate != nil {
-                UserDefaults.standard.set(lastDate, forKey: CloudKitHelper.LastDateKey)
-            }
         
+        let date = UserDefaults.standard.value(forKey: MeMessageHelper.LastDateKey) as? Date
+        cloudKitHelper?.downloadMessages(from: date, in: context) { [weak self] lastDate in
+            if lastDate != nil {
+                UserDefaults.standard.set(lastDate, forKey: MeMessageHelper.LastDateKey)
+            }
+            
             
             DispatchQueue.main.async {
                 self?.tableView.refreshControl?.endRefreshing()
@@ -63,7 +65,7 @@ class ViewController: UIViewController {
     }
     
     @objc func refreshControlAction(_ sender: UIRefreshControl) {
-            startDownloading()
+        startDownloading()
     }
     
     @objc func tapAction(_ recognizer: UITapGestureRecognizer) {
@@ -112,9 +114,9 @@ class ViewController: UIViewController {
     }
     
     
-    lazy var frc: NSFetchedResultsController<Message>! = {
+    lazy var frc: NSFetchedResultsController<MEMessage>! = {
         
-        let request = Message.fetchRequest() as NSFetchRequest<Message>
+        let request = MEMessage.fetchRequest() as NSFetchRequest<MEMessage>
         let dateOrder = NSSortDescriptor(key: "date", ascending: true)
         request.sortDescriptors = [ dateOrder ]
         
@@ -131,17 +133,15 @@ class ViewController: UIViewController {
     }()
     
     @IBAction func sendAction(_ sender: Any) {
-    
+        
         guard !editingText.text.isEmpty else {
             sendButton.isEnabled = false
             return
         }
         
-        
-        
-        CloudKitHelper.sendMessage(editingText.text,
-                                   in: context) { (done) in
-                                    // nothing to do
+        cloudKitHelper?.sendMessage(editingText.text,
+                                    in: context) { (done) in
+                                        // nothing to do
         }
         
         editingText.text = ""
@@ -149,6 +149,47 @@ class ViewController: UIViewController {
         editingText.resignFirstResponder()
     }
     
+    @IBAction func addPhoto(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary;
+        imagePicker.allowsEditing = true
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        var imageUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL
+        if let resizedImage = image?.resizeRectImage(targetSize: CGSize(width: 200, height: 200)){
+            imageUrl = saveImageLocally(image: resizedImage) as URL
+        }
+        
+        if let fileUrl = imageUrl {
+            
+            cloudKitHelper?.sendImageMessage(fileUrl: fileUrl,
+                                             in: context) { (done) in
+                                                
+            }
+        }
+       
+        editingText.text = ""
+        sendButton.isEnabled = false
+        editingText.resignFirstResponder()
+        dismiss(animated:true, completion: nil)
+    }
+}
+
+private func saveImageLocally(image: UIImage) -> NSURL{
+    let cacheDirectoryPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] as NSString
+    var imageURL: NSURL!
+    let tempImageName = "temp_image.jpg"
+    let imageData = image.pngData()! as NSData
+    let path = cacheDirectoryPath.appendingPathComponent(tempImageName)
+    imageURL = NSURL(fileURLWithPath: path)
+    imageData.write(to: imageURL as URL, atomically: true)
+    return imageURL
 }
 
 extension ViewController: UITextViewDelegate {
@@ -162,7 +203,6 @@ extension ViewController: UITextViewDelegate {
         
         sendButton.isEnabled = textView.text.count > 0
     }
-    
 }
 
 extension ViewController: NSFetchedResultsControllerDelegate {
@@ -221,19 +261,47 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let message = frc.object(at: indexPath)
-
-        let identifier = message.userCode == myCode ? "rightMessage" : "leftMessage"
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MessageCell
-        
-        cell.messageText.text = message.text
-        
+        let message = frc.object(at: indexPath)        
         // MARK: - TO-DO user image
         
+        return configureCell(message: message, tableView: tableView, indexPath: indexPath)
+    }
+    
+    private func configureCell(message: MEMessage,tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let isUserCode = message.userCode == Constants.MY_USER_CODE
+        let messageType = message.messageType
+        var cellReturn = UITableViewCell()
+        
+        switch (messageType, isUserCode) {
+        case (Constants.TEXT_MESSAGE_TYPE, true):
+            cellReturn = getTextCell(message: message, tableView: tableView, indexPath: indexPath, identifier: Constants.RIGHT_TEXT_MESSAGE)
+        case (Constants.IMAGE_MESSAGE_TYPE, true):
+            cellReturn = getImageCell(message: message, tableView: tableView, indexPath: indexPath, identifier: Constants.RIGHT_IMAGE_MESSAGE)
+        case (Constants.TEXT_MESSAGE_TYPE, false):
+            cellReturn = getTextCell(message: message, tableView: tableView, indexPath: indexPath, identifier: Constants.LEFT_TEXT_MESSAGE)
+        case (Constants.IMAGE_MESSAGE_TYPE, false):
+            cellReturn = getImageCell(message: message, tableView: tableView, indexPath: indexPath, identifier: Constants.RIGHT_IMAGE_MESSAGE)
+        default:
+            debugPrint("Unexpected combination of message type and user ")        }
+        return cellReturn
+    }
+    
+    private func getImageCell(message: MEMessage, tableView: UITableView, indexPath: IndexPath, identifier: String) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ImageMessageCell
+           cell.imageMessage.image = UIImage(named: "image_placeholder")
+        if let imageUrl = message.assetUrl {
+            if let data = NSData(contentsOf: imageUrl){
+                cell.imageMessage.image = UIImage(data: data as Data)
+            }
+        }
         return cell
     }
     
+    private func getTextCell(message: MEMessage, tableView: UITableView, indexPath: IndexPath, identifier: String) -> UITableViewCell {
+        let   cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MessageCell
+        cell.messageText.text = message.text
+        return cell
+    }
     
 }
 
