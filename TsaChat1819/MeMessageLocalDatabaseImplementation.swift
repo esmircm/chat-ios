@@ -59,12 +59,9 @@ class MeMessageLocalDatabaseImplementation : LocalDatabaseProtocol {
                                                                  into: tempContext) as! MEMessage
             let File : CKAsset? = record["asset"]
             
-            
-          
-            
-          //  if let file = File {
-                newMessage.assetUrl = self.saveFileToCache(file: File!)
-        //    }
+            if let file = File {
+                newMessage.assetUrl = self.saveFileToCache(file: file)
+           }
             
             newMessage.messageType = record["messageType"]
             

@@ -38,6 +38,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         view.addGestureRecognizer(recognizer)
         
         editingText.text = ""
+        editingText.layer.cornerRadius = 9.9
+
+
         
         sendButton.isEnabled = false
         
@@ -162,7 +165,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         var imageUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL
-        if let resizedImage = image?.resizeRectImage(targetSize: CGSize(width: 200, height: 200)){
+        if let resizedImage = image?.resizeRectImage(targetSize: CGSize(width: 400, height: 400)){
             imageUrl = saveImageLocally(image: resizedImage) as URL
         }
         
