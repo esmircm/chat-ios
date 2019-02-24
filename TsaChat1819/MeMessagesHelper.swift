@@ -138,31 +138,27 @@ class MeMessageHelper : CloudKitHelperProtocol {
         db.fetchAllSubscriptions { (subscription, error) in
             guard error == nil, subscription != nil else { return }
             
-            if subscription!.isEmpty{
-                
                 let options:CKQuerySubscription.Options
                 options = [.firesOnRecordCreation]
-                // TODO: saber el with del usuario para que cuando escribas un msg no te llegue una propia notificacion
                 
                 let predicate = NSPredicate(value: true)
                 
                 let subscription = CKQuerySubscription(recordType: "MEMessages",
                                                        predicate: predicate,
-                                                       subscriptionID: "NEW_MESSAGE",
+                                                       subscriptionID: "NEW_ME_MESSAGE",
                                                        options: options)
                 
                 let info = CKQuerySubscription.NotificationInfo()
                 info.soundName = "chan.aiff"
-                info.alertBody = "Nuevo mensaje"
-                
-                
+                info.alertBody = "New message"
+            
                 subscription.notificationInfo = info
                 db.save(subscription, completionHandler: { (subscription, error) in
-                    debugPrint("EROR GUARDANDO SUBSCRIPCION")
+                    debugPrint("GUARDANDO SUBSCRIPCION")
                 })
                 
             }
-        }
+//        }
         
     }
     
