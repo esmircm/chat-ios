@@ -36,6 +36,9 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(recognizer)
         
         editingText.text = ""
+        editingText.layer.cornerRadius = 9.9
+
+
         
         sendButton.isEnabled = false
         
