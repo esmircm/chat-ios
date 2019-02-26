@@ -166,7 +166,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         var imageUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL
-        if let resizedImage = image?.resizeImage(400){
+        if let resizedImage = image?.resizeRectImage(targetSize: CGSize(width: 400, height: 400)){
             imageUrl = saveImageLocally(image: resizedImage) as URL
         }
         
