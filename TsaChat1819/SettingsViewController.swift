@@ -29,10 +29,38 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         textView.text = textPlaceholder
         textView.textColor = UIColor.lightGray
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAnimation(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAnimation(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
+        
+        view.addGestureRecognizer(recognizer)
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
         let user = meMessageHelper?.getUser(context: context)
         setUserData(user: user)
+    }
+    
+    @objc func tapAction(_ recognizer: UITapGestureRecognizer) {
+        textView.resignFirstResponder()
+    }
+    
+    @objc func keyboardAnimation(_ notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let animationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+       
+        let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber
+        
+        let animationCurve = UIView.AnimationOptions(rawValue:curve.uintValue << 16)
+        
+        UIView.animate(withDuration: animationDuration,
+                       delay: 0.0,
+                       options: [.beginFromCurrentState, animationCurve],
+                       animations: {
+                        self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func setUserData(user: User?){
