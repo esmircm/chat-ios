@@ -97,7 +97,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         photo = image.resizedRoundedImage(200)
         imageView.image = photo
-        let smallImage = image.resizedRoundedImage(50)
+        let smallImage = image.resizedRoundedImage(200)
         photoData = smallImage.pngData()
         fileUrl = (info[UIImagePickerController.InfoKey.imageURL] as! URL)
         
