@@ -315,17 +315,30 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Em-7W-WXy">
                                 <rect key="frame" x="157" y="570" width="100" height="30"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Y41-z7-vgx"/>
                                     <constraint firstAttribute="width" constant="100" id="p6k-ad-Mxt"/>
                                 </constraints>
-                                <state key="normal" title="Save"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="saveData:" destination="toU-7s-qhj" eventType="touchUpInside" id="8ZY-lW-FPm"/>
                                     <action selector="saveData:" destination="XO8-lH-DUo" eventType="touchUpInside" id="Dmn-9i-2sd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCc-o0-g9H">
-                                <rect key="frame" x="163.66666666666666" y="392" width="87" height="30"/>
-                                <state key="normal" title="Open gallery"/>
+                                <rect key="frame" x="152" y="392" width="110" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fq5-ii-Sez"/>
+                                    <constraint firstAttribute="width" constant="110" id="jmj-od-adn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Open gallery">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="openGallery:" destination="toU-7s-qhj" eventType="touchUpInside" id="0WE-Mm-p4n"/>
                                     <action selector="openGallery:" destination="XO8-lH-DUo" eventType="touchUpInside" id="Fzi-bK-9Ux"/>

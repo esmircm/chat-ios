@@ -36,10 +36,30 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         
         view.addGestureRecognizer(recognizer)
         
+        
+        animationButton(openGallery)
+        animationButton(saveButton)
+        
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
         let user = meMessageHelper?.getUser(context: context)
         setUserData(user: user)
+    }
+    
+    func animationButton(_ button: UIButton) {
+        button.backgroundColor = #colorLiteral(red: 0, green: 0.7967179418, blue: 0.7866604924, alpha: 1)
+        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 12
+        button.layer.borderWidth = 0
+        button.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIButton.animate(withDuration: 0.7, animations: {
+            button.layer.transform = CATransform3DMakeScale(1.25,1.25,1)
+        },completion: { finished in
+            UIButton.animate(withDuration: 0.5, animations: {
+                button.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
+        })
     }
     
     @objc func tapAction(_ recognizer: UITapGestureRecognizer) {
