@@ -22,4 +22,6 @@ protocol CloudKitHelperProtocol {
     
     func checkForSubscription()
     
+    func getUser(context: NSManagedObjectContext) -> User?
+
 }

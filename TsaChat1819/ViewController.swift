@@ -23,6 +23,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var context: NSManagedObjectContext!
     var fileUrl: URL?
+    var userPhotoData: Data?
+    var userPhotoAdded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +42,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         editingText.text = ""
         editingText.layer.cornerRadius = 9.9
         
-        
+        if let user = cloudKitHelper?.getUser(context: context){
+            userPhotoData = user.profilePhoto
+            userPhotoAdded = true
+        }
         
         sendButton.isEnabled = false
-        
-        
         
         startDownloading()
         
@@ -53,13 +56,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func startDownloading() {
-        
         let date = UserDefaults.standard.value(forKey: MeMessageHelper.LastDateKey) as? Date
         cloudKitHelper?.downloadMessages(from: date, in: context) { [weak self] lastDate in
             if lastDate != nil {
                 UserDefaults.standard.set(lastDate, forKey: MeMessageHelper.LastDateKey)
             }
-            
             
             DispatchQueue.main.async {
                 self?.tableView.refreshControl?.endRefreshing()
@@ -165,7 +166,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         var imageUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL
-        if let resizedImage = image?.resizeRectImage(targetSize: CGSize(width: 400, height: 400)){
+        if let resizedImage = image?.resizeImage(400){
             imageUrl = saveImageLocally(image: resizedImage) as URL
         }
         
@@ -296,6 +297,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             if let data = NSData(contentsOf: imageUrl){
                 cell.imageMessage.image = UIImage(data: data as Data)
             }
+            if (message.userCode == Constants.MY_USER_CODE && userPhotoData != nil){
+                cell.userImage.image = UIImage(data: userPhotoData!, scale: 200)
+            }
         }
         return cell
     }
@@ -303,7 +307,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     private func getTextCell(message: MEMessage, tableView: UITableView, indexPath: IndexPath, identifier: String) -> UITableViewCell {
         let   cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MessageCell
         cell.messageText.text = message.text
+        if (message.userCode == Constants.MY_USER_CODE && userPhotoData != nil){
+            cell.userImage.image = UIImage(data: userPhotoData!, scale: 200)
+        }
+        
         return cell
+    }
+    
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+        if !userPhotoAdded {
+            if let user = cloudKitHelper?.getUser(context: context){
+                userPhotoData = user.profilePhoto
+                userPhotoAdded = true
+                tableView.reloadData()
+            }
+        }
     }
     
 }

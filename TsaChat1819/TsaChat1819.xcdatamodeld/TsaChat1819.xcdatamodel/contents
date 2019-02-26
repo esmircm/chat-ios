@@ -10,14 +10,13 @@
         <attribute name="toId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userCode" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Message" representedClassName="Message" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="recordName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userCode" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePhoto" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Message" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="MEMessage" positionX="-63" positionY="9" width="128" height="165"/>
+        <element name="User" positionX="-54" positionY="63" width="128" height="90"/>
     </elements>
 </model>

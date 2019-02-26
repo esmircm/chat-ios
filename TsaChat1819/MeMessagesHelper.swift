@@ -11,11 +11,15 @@ import CloudKit
 import CoreData
 
 class MeMessageHelper : CloudKitHelperProtocol {
-
-    let localDatabaseProtocol : LocalDatabaseProtocol?
+    
+    static var downloading = false
+    
+    static let LastDateKey = "LAST_MESSAGE_DATE"
+    
+    let meMessageLocaldatabaseHelper : MeMessageLocalDatabaseHelper?
     
     init() {
-        localDatabaseProtocol = MeMessageLocalDatabaseImplementation()
+        meMessageLocaldatabaseHelper = MeMessageLocalDatabaseHelper()
     }
     
     func sendMessage(_ text: String, in context: NSManagedObjectContext, completion: (Bool) -> Void) {
@@ -32,15 +36,10 @@ class MeMessageHelper : CloudKitHelperProtocol {
             }
             
             if let record = record {
-                self?.localDatabaseProtocol?.insertNewMessage(context: context, record: record, text: text)
+                self?.meMessageLocaldatabaseHelper?.insertNewMessage(context: context, record: record, text: text)
             }
         }
     }
-    
-    
-    static var downloading = false
-    
-    static let LastDateKey = "LAST_MESSAGE_DATE"
     
     func myName(_ completion: @escaping (String?) -> Void) {
         
@@ -86,14 +85,14 @@ class MeMessageHelper : CloudKitHelperProtocol {
             
             lastDate = record.creationDate
             
-            localDatabaseProtocol?.insertMessagePerRecord(tempContext: tempContext, record: record)
+            meMessageLocaldatabaseHelper?.insertMessagePerRecord(tempContext: tempContext, record: record)
         }
         
         func completionBlock(cursor: CKQueryOperation.Cursor?, error: Error?) {
             
-            localDatabaseProtocol?.saveContext(tempContext: tempContext)
+            meMessageLocaldatabaseHelper?.saveContext(tempContext: tempContext)
             
-         if cursor != nil {
+            if cursor != nil {
                 let newOp = CKQueryOperation(cursor: cursor!)
                 newOp.recordFetchedBlock = perRecord
                 newOp.queryCompletionBlock = completionBlock
@@ -125,9 +124,9 @@ class MeMessageHelper : CloudKitHelperProtocol {
             }
             
             if let record = record {
-                 self?.localDatabaseProtocol?.insertNewImageMessage(context: context, record: record, assetUrl: fileUrl)
+                self?.meMessageLocaldatabaseHelper?.insertNewImageMessage(context: context, record: record, assetUrl: fileUrl)
             }
-         
+            
         }
     }
     
@@ -148,7 +147,7 @@ class MeMessageHelper : CloudKitHelperProtocol {
                 
                 let subscription = CKQuerySubscription(recordType: "MEMessages",
                                                        predicate: predicate,
-                                                       subscriptionID: "NEW_MESSAGE",
+                                                       subscriptionID: "NEW_ME_MESSAGE",
                                                        options: options)
                 
                 let info = CKQuerySubscription.NotificationInfo()
@@ -166,5 +165,36 @@ class MeMessageHelper : CloudKitHelperProtocol {
         
     }
     
+    func saveUser(context: NSManagedObjectContext, fileUrl: URL?, name: String, photoData: Data?){
+        let user = CKRecord(recordType: "MEUser")
+        user["name"] = name as NSString
+        
+        if fileUrl != nil {
+            let asset = CKAsset(fileURL: fileUrl!)
+            user["photo"] = asset as CKAsset
+        }
+        
+        let db = CKContainer.default().publicCloudDatabase
+        meMessageLocaldatabaseHelper?.saveUserInLocalDataBase(context: context, name: name, photoData: photoData)
+        
+        db.save(user) { (record, error) in
+            
+            guard error == nil, record != nil else {
+                return
+            }
+
+        }
+    }
+    
+    func getUser(context: NSManagedObjectContext) -> User? {
+        return meMessageLocaldatabaseHelper?.getUser(context: context)
+    }
+    
     
 }
+
+
+
+
+
+

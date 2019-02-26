@@ -10,7 +10,25 @@ import Foundation
 import CoreData
 import CloudKit
 
-class MeMessageLocalDatabaseImplementation : LocalDatabaseProtocol {
+class MeMessageLocalDatabaseHelper {
+    func getUser(context: NSManagedObjectContext) -> User? {
+        var user: User?
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                user = data as? User
+            }
+            
+        } catch {
+            
+            print("Failed")
+        }
+        
+        return user
+    }
     
     func insertNewMessage(context : NSManagedObjectContext, record: CKRecord, text: String) {
         context.perform {
@@ -33,11 +51,11 @@ class MeMessageLocalDatabaseImplementation : LocalDatabaseProtocol {
             message.recordName = record.recordID.recordName
             let File : CKAsset? = record["asset"]
             
-          //  if let file = File {
-                message.assetUrl = self.saveFileToCache(file: File!)
-           // }
+            if let file = File {
+                message.assetUrl = self.saveFileToCache(file: file)
+            }
             
-             message.messageType = "image_message"
+            message.messageType = "image_message"
             try? context.save()
         }
     }
@@ -61,7 +79,7 @@ class MeMessageLocalDatabaseImplementation : LocalDatabaseProtocol {
             
             if let file = File {
                 newMessage.assetUrl = self.saveFileToCache(file: file)
-           }
+            }
             
             newMessage.messageType = record["messageType"]
             
@@ -73,7 +91,7 @@ class MeMessageLocalDatabaseImplementation : LocalDatabaseProtocol {
             newMessage.userCode = record.creatorUserRecordID?.recordName
             newMessage.date = record.creationDate
         }
-
+        
     }
     
     func saveContext(tempContext: NSManagedObjectContext) {
@@ -88,18 +106,18 @@ class MeMessageLocalDatabaseImplementation : LocalDatabaseProtocol {
     }
     
     private func saveFileToCache(file: CKAsset ) -> URL {
-    let data: Data
+        let data: Data
         data = try! NSData(contentsOf: file.fileURL) as Data
-    let cacheDirectoryURL =
-    try? FileManager.default.url(for: .cachesDirectory,
-    in: .userDomainMask,
-    appropriateFor: nil,
-    create: false)
-
-    let temporaryFilename = ProcessInfo().globallyUniqueString
-    
-    let temporaryFileURL =
-        cacheDirectoryURL?.appendingPathComponent(temporaryFilename)
+        let cacheDirectoryURL =
+            try? FileManager.default.url(for: .cachesDirectory,
+                                         in: .userDomainMask,
+                                         appropriateFor: nil,
+                                         create: false)
+        
+        let temporaryFilename = ProcessInfo().globallyUniqueString
+        
+        let temporaryFileURL =
+            cacheDirectoryURL?.appendingPathComponent(temporaryFilename)
         
         try? data.write(to: temporaryFileURL!,
                         options: .atomicWrite)
@@ -107,6 +125,14 @@ class MeMessageLocalDatabaseImplementation : LocalDatabaseProtocol {
         return temporaryFileURL!
     }
     
-    
-   
+    func saveUserInLocalDataBase(context: NSManagedObjectContext, name: String, photoData: Data?) {
+        context.perform {
+            let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
+            user.name = name
+            if let photo = photoData {
+                user.profilePhoto = photo as Data
+            }
+            try? context.save()
+        }
+    }
 }

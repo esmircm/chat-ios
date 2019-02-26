@@ -118,13 +118,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func startDownloading() {
         
-        let date = UserDefaults.standard.value(forKey: CloudKitHelper.LastDateKey) as? Date
+        let date = UserDefaults.standard.value(forKey: MeMessageHelper.LastDateKey) as? Date
         
         cloudKitHelper.downloadMessages(from: date, in: persistentContainer.viewContext) {
             (date) in
             
             if date != nil {
-                UserDefaults.standard.set(date, forKey: CloudKitHelper.LastDateKey)
+                UserDefaults.standard.set(date, forKey: MeMessageHelper.LastDateKey)
             }
             
         }

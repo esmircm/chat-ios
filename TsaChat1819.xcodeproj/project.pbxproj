@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		02F49CC021FB707F003CB8FC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F49CBF21FB707F003CB8FC /* CloudKit.framework */; };
 		02F49CC221FB8F3F003CB8FC /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F49CC121FB8F3F003CB8FC /* MessageCell.swift */; };
-		02F49CC421FB9D3E003CB8FC /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F49CC321FB9D3E003CB8FC /* CloudKitHelper.swift */; };
 		02F8E36A21FB6EBF00FBAFE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E36921FB6EBF00FBAFE7 /* AppDelegate.swift */; };
 		02F8E36C21FB6EBF00FBAFE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E36B21FB6EBF00FBAFE7 /* ViewController.swift */; };
 		02F8E36F21FB6EBF00FBAFE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F8E36D21FB6EBF00FBAFE7 /* Main.storyboard */; };
@@ -21,10 +20,10 @@
 		7EBF505E221987920093F9F5 /* ImageMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF505D221987920093F9F5 /* ImageMessageCell.swift */; };
 		7EBF5060221B3C740093F9F5 /* CloudKitHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF505F221B3C740093F9F5 /* CloudKitHelperProtocol.swift */; };
 		7EBF5062221B3D890093F9F5 /* MeMessagesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5061221B3D890093F9F5 /* MeMessagesHelper.swift */; };
-		7EBF5064221B43890093F9F5 /* LocalDatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5063221B43890093F9F5 /* LocalDatabaseProtocol.swift */; };
 		7EBF5066221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5065221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift */; };
 		7EBF5068221C91D20093F9F5 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5067221C91D20093F9F5 /* UIImage+resize.swift */; };
 		7EBF506A221F3CE10093F9F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF5069221F3CE10093F9F5 /* Constants.swift */; };
+		7EBF506C2222F2740093F9F5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF506B2222F2740093F9F5 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +39,6 @@
 /* Begin PBXFileReference section */
 		02F49CBF21FB707F003CB8FC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		02F49CC121FB8F3F003CB8FC /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
-		02F49CC321FB9D3E003CB8FC /* CloudKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		02F8E36621FB6EBF00FBAFE7 /* TsaChat1819.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TsaChat1819.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F8E36921FB6EBF00FBAFE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02F8E36B21FB6EBF00FBAFE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,10 +55,10 @@
 		7EBF505D221987920093F9F5 /* ImageMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageCell.swift; sourceTree = "<group>"; };
 		7EBF505F221B3C740093F9F5 /* CloudKitHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelperProtocol.swift; sourceTree = "<group>"; };
 		7EBF5061221B3D890093F9F5 /* MeMessagesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeMessagesHelper.swift; sourceTree = "<group>"; };
-		7EBF5063221B43890093F9F5 /* LocalDatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseProtocol.swift; sourceTree = "<group>"; };
 		7EBF5065221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeMessageLocalDatabaseImplementation.swift; sourceTree = "<group>"; };
 		7EBF5067221C91D20093F9F5 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		7EBF5069221F3CE10093F9F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7EBF506B2222F2740093F9F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +113,6 @@
 				64DBC0DB21FC83DB0018C502 /* chan.aiff */,
 				02F8E38C21FB6F4200FBAFE7 /* TsaChat1819.entitlements */,
 				02F8E36921FB6EBF00FBAFE7 /* AppDelegate.swift */,
-				02F49CC321FB9D3E003CB8FC /* CloudKitHelper.swift */,
 				02F8E36B21FB6EBF00FBAFE7 /* ViewController.swift */,
 				02F8E36D21FB6EBF00FBAFE7 /* Main.storyboard */,
 				02F49CC121FB8F3F003CB8FC /* MessageCell.swift */,
@@ -126,10 +123,10 @@
 				7EBF505D221987920093F9F5 /* ImageMessageCell.swift */,
 				7EBF505F221B3C740093F9F5 /* CloudKitHelperProtocol.swift */,
 				7EBF5061221B3D890093F9F5 /* MeMessagesHelper.swift */,
-				7EBF5063221B43890093F9F5 /* LocalDatabaseProtocol.swift */,
 				7EBF5065221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift */,
 				7EBF5067221C91D20093F9F5 /* UIImage+resize.swift */,
 				7EBF5069221F3CE10093F9F5 /* Constants.swift */,
+				7EBF506B2222F2740093F9F5 /* SettingsViewController.swift */,
 			);
 			path = TsaChat1819;
 			sourceTree = "<group>";
@@ -254,15 +251,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				02F8E36C21FB6EBF00FBAFE7 /* ViewController.swift in Sources */,
-				7EBF5064221B43890093F9F5 /* LocalDatabaseProtocol.swift in Sources */,
 				7EBF5060221B3C740093F9F5 /* CloudKitHelperProtocol.swift in Sources */,
 				7EBF505E221987920093F9F5 /* ImageMessageCell.swift in Sources */,
 				7EBF5062221B3D890093F9F5 /* MeMessagesHelper.swift in Sources */,
 				02F49CC221FB8F3F003CB8FC /* MessageCell.swift in Sources */,
 				02F8E36A21FB6EBF00FBAFE7 /* AppDelegate.swift in Sources */,
-				02F49CC421FB9D3E003CB8FC /* CloudKitHelper.swift in Sources */,
 				7EBF5068221C91D20093F9F5 /* UIImage+resize.swift in Sources */,
 				7EBF5066221B443E0093F9F5 /* MeMessageLocalDatabaseImplementation.swift in Sources */,
+				7EBF506C2222F2740093F9F5 /* SettingsViewController.swift in Sources */,
 				02F8E37221FB6EBF00FBAFE7 /* TsaChat1819.xcdatamodeld in Sources */,
 				7EBF506A221F3CE10093F9F5 /* Constants.swift in Sources */,
 			);
